@@ -131,15 +131,18 @@ img{max-width:100%;display:block}
 }
 .mm-link:hover{color:var(--blue-600);padding-left:6px}
 .mm-cta{
-  margin-top:16px;text-align:center;border:none !important;
-  background:var(--blue-600);
-  color:#fff !important;padding:12px 20px;border-radius:50px;
-  font-weight:500;font-size:.9rem;
-  box-shadow:0 2px 12px rgba(14,165,233,.2);
-  border-bottom:none !important;
+  margin: 24px auto 0;
+  width: fit-content;
+  text-align:center;
+  background:transparent;
+  color:var(--blue-600) !important;
+  border:1.5px solid var(--blue-300) !important;
+  padding:10px 28px;border-radius:50px;
+  font-weight:600;font-size:.85rem;
+  box-shadow:none;
   transition:all .3s var(--ease);
 }
-.mm-cta:hover{background:var(--blue-700)}
+.mm-cta:hover{background:var(--blue-50);border-color:var(--blue-600) !important}
 .mm-close{
   position:absolute;top:16px;right:16px;
   background:var(--blue-50);border:none;cursor:pointer;
