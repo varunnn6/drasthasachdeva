@@ -78,8 +78,8 @@ img{max-width:100%;display:block}
   height:66px;display:flex;align-items:center;justify-content:space-between;
 }
 .nav-logo{
-  font-family:'DM Serif Display',serif;font-size:1.15rem;
-  color:var(--navy);letter-spacing:.01em;
+  font-family:'Corinthia',cursive;font-size:1.7rem;font-weight:700;
+  color:var(--navy);letter-spacing:.01em;line-height:1;
 }
 .nav-links{display:flex;align-items:center;gap:36px}
 .nav-links a{font-size:.88rem;font-weight:500;color:var(--text-sub);transition:color .25s}
@@ -371,7 +371,30 @@ img{max-width:100%;display:block}
 a.wa-chip:hover{transform:translateX(5px);box-shadow:var(--shadow-sm);background:#dcfce7}
 .loc-chip{color:var(--text-sub)}
 
-/* FORM */
+/* Fill-up animation — desktop only */
+@media(hover:hover){
+  .btn-fill{
+    position:relative;overflow:hidden;isolation:isolate;
+  }
+  .btn-fill::before{
+    content:'';position:absolute;inset:0;
+    background:var(--blue-600);
+    transform:translateY(100%);
+    transition:transform .4s cubic-bezier(.4,0,.2,1);
+    border-radius:50px;z-index:-1;
+  }
+  .btn-fill:hover::before{transform:translateY(0)}
+  .btn-fill:hover{
+    color:#fff;border-color:var(--blue-600);
+  }
+}
+
+/* Location chip — clickable style */
+a.loc-chip{
+  cursor:pointer;
+  transition:all .3s var(--ease);
+}
+a.loc-chip:hover{transform:translateX(5px);box-shadow:var(--shadow-sm);background:var(--blue-50);border-color:var(--blue-300)}
 .contact-form-box{
   background:var(--bg);border:1px solid var(--blue-100);
   border-radius:var(--r-lg);padding:40px;box-shadow:var(--shadow-md);
