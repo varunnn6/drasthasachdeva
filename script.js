@@ -71,13 +71,13 @@ animateEls.forEach(el => revealObserver.observe(el));
 // The CSS @keyframes marquee handles it. Just ensure the
 // content is doubled exactly in HTML (which it is).
 
-// ── CONTACT FORM ─────────────────────────────────────────────
+// ── CONTACT FORM → WHATSAPP ──────────────────────────────────
 function handleSubmit(e) {
   e.preventDefault();
-  const form  = document.getElementById('contactForm');
+  const form    = document.getElementById('contactForm');
   const success = document.getElementById('formSuccess');
 
-  // Basic validation visual feedback
+  // Validation
   const inputs = form.querySelectorAll('input[required]');
   let valid = true;
   inputs.forEach(input => {
@@ -88,8 +88,25 @@ function handleSubmit(e) {
       input.style.borderColor = '';
     }
   });
-
   if (!valid) return;
+
+  // Collect values
+  const name      = document.getElementById('name').value.trim();
+  const phone     = document.getElementById('phone').value.trim();
+  const condition = document.getElementById('condition').value;
+  const message   = document.getElementById('message').value.trim();
+
+  // Build WhatsApp message
+  let waMsg = `🏥 *New Patient Request*\n\n`;
+  waMsg += `*Name:* ${name}\n`;
+  waMsg += `*Phone:* ${phone}\n`;
+  if (condition) waMsg += `*Condition:* ${condition}\n`;
+  if (message)   waMsg += `*Note:* ${message}\n`;
+  waMsg += `\n_Sent via website form_`;
+
+  // Open WhatsApp with pre-filled message
+  const encoded = encodeURIComponent(waMsg);
+  window.open(`https://wa.me/917011700787?text=${encoded}`, '_blank');
 
   form.style.opacity = '0';
   form.style.transform = 'translateY(10px)';
