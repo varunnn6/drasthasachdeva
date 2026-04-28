@@ -92,14 +92,18 @@ function handleSubmit(e) {
 
   // Collect values
   const name      = document.getElementById('name').value.trim();
+  const age       = document.getElementById('age').value.trim();
   const phone     = document.getElementById('phone').value.trim();
   const condition = document.getElementById('condition').value;
+  const address   = document.getElementById('address').value.trim();
   const message   = document.getElementById('message').value.trim();
 
   // Build WhatsApp message
   let waMsg = `🏥 *New Patient Request*\n\n`;
   waMsg += `*Name:* ${name}\n`;
+  if (age)       waMsg += `*Age:* ${age}\n`;
   waMsg += `*Phone:* ${phone}\n`;
+  if (address)   waMsg += `*Address:* ${address}\n`;
   if (condition) waMsg += `*Condition:* ${condition}\n`;
   if (message)   waMsg += `*Note:* ${message}\n`;
   waMsg += `\n_Sent via website form_`;
