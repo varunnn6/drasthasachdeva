@@ -109,12 +109,15 @@ img{max-width:100%;display:block}
 
 /* MOBILE DRAWER */
 .mobile-menu{
-  position:fixed;top:0;right:0;bottom:0;z-index:1000;
+  position:fixed;top:0;right:0;z-index:1000;
   width:min(300px, 82vw);
+  height:100vh;
+  height:100dvh;
   background:var(--white);
   display:flex;flex-direction:column;
   padding:72px 28px 36px;
   gap:0;
+  overflow-y:auto;
   box-shadow:-8px 0 48px rgba(14,165,233,.15);
   transform:translateX(100%);
   transition:transform .4s cubic-bezier(.4,0,.2,1);
