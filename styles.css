@@ -2,24 +2,24 @@
    TOKENS
    ============================================= */
 :root {
-  --bg:          #f5f8ff;
+  --bg:          #f0f9ff;
   --white:       #ffffff;
-  --blue-50:     #eef3ff;
-  --blue-100:    #dce8ff;
-  --blue-300:    #93b8f8;
-  --blue-500:    #4f8ef7;
-  --blue-600:    #2563eb;
-  --blue-700:    #1a4dcc;
-  --navy:        #0f1f4b;
-  --navy-light:  #1e3a6e;
-  --slate:       #6b7fa3;
-  --slate-light: #8fa3c8;
-  --text:        #0f1f4b;
-  --text-sub:    #4a5980;
-  --text-muted:  #8fa3c8;
-  --shadow-sm:   0 2px 12px rgba(15,31,75,.06);
-  --shadow-md:   0 8px 32px rgba(15,31,75,.10);
-  --shadow-lg:   0 24px 64px rgba(15,31,75,.14);
+  --blue-50:     #e0f7ff;
+  --blue-100:    #bae6fd;
+  --blue-300:    #7dd3fc;
+  --blue-500:    #38bdf8;
+  --blue-600:    #0ea5e9;
+  --blue-700:    #0284c7;
+  --navy:        #0c2340;
+  --navy-light:  #103a5e;
+  --slate:       #4a7a9b;
+  --slate-light: #7ab0cc;
+  --text:        #0c2340;
+  --text-sub:    #2d5d7c;
+  --text-muted:  #7ab0cc;
+  --shadow-sm:   0 2px 12px rgba(14,165,233,.08);
+  --shadow-md:   0 8px 32px rgba(14,165,233,.12);
+  --shadow-lg:   0 24px 64px rgba(14,165,233,.16);
   --r-sm: 10px;
   --r-md: 18px;
   --r-lg: 28px;
