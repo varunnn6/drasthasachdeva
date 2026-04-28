@@ -85,13 +85,13 @@ img{max-width:100%;display:block}
 .nav-links a{font-size:.88rem;font-weight:500;color:var(--text-sub);transition:color .25s}
 .nav-links a:hover{color:var(--blue-600)}
 .nav-cta{
-  background:linear-gradient(135deg,var(--blue-600),var(--blue-700)) !important;
-  color:#fff !important;padding:10px 22px;border-radius:50px;
-  font-size:.85rem !important;
-  box-shadow:0 4px 16px rgba(37,99,235,.25);
+  background:var(--blue-600) !important;
+  color:#fff !important;padding:8px 18px;border-radius:50px;
+  font-size:.8rem !important;font-weight:500;
+  box-shadow:0 2px 8px rgba(14,165,233,.2);
   transition:all .3s var(--ease) !important;
 }
-.nav-cta:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,99,235,.35) !important}
+.nav-cta:hover{transform:translateY(-1px);background:var(--blue-700) !important;box-shadow:0 4px 12px rgba(14,165,233,.3) !important}
 .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
 .hamburger span{display:block;width:22px;height:2px;background:var(--navy);border-radius:2px;transition:.3s var(--ease)}
 .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
@@ -132,11 +132,14 @@ img{max-width:100%;display:block}
 .mm-link:hover{color:var(--blue-600);padding-left:6px}
 .mm-cta{
   margin-top:16px;text-align:center;border:none !important;
-  background:linear-gradient(135deg,var(--blue-600),var(--blue-700));
-  color:#fff !important;padding:14px 20px;border-radius:50px;
-  font-weight:600;box-shadow:0 4px 16px rgba(14,165,233,.3);
+  background:var(--blue-600);
+  color:#fff !important;padding:12px 20px;border-radius:50px;
+  font-weight:500;font-size:.9rem;
+  box-shadow:0 2px 12px rgba(14,165,233,.2);
   border-bottom:none !important;
+  transition:all .3s var(--ease);
 }
+.mm-cta:hover{background:var(--blue-700)}
 .mm-close{
   position:absolute;top:16px;right:16px;
   background:var(--blue-50);border:none;cursor:pointer;
