@@ -8,30 +8,39 @@ window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 20);
 }, { passive: true });
 
-// ── HAMBURGER MENU ───────────────────────────────────────────
-const hamburger = document.getElementById('hamburger');
-const mobileMenu = document.getElementById('mobileMenu');
+// ── RIGHT-SIDE DRAWER ────────────────────────────────────
+const hamburger     = document.getElementById('hamburger');
+const mobileMenu    = document.getElementById('mobileMenu');
+const drawerOverlay = document.getElementById('drawerOverlay');
+const mmClose       = document.getElementById('mmClose');
+
+function openDrawer() {
+  drawerOverlay.classList.add('open');
+  requestAnimationFrame(() => drawerOverlay.classList.add('visible'));
+  mobileMenu.classList.add('open');
+  hamburger.classList.add('open');
+  mobileMenu.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeDrawer() {
+  drawerOverlay.classList.remove('visible');
+  mobileMenu.classList.remove('open');
+  hamburger.classList.remove('open');
+  mobileMenu.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+  setTimeout(() => drawerOverlay.classList.remove('open'), 350);
+}
 
 hamburger.addEventListener('click', () => {
-  const isOpen = mobileMenu.classList.toggle('open');
-  hamburger.classList.toggle('open', isOpen);
-  mobileMenu.setAttribute('aria-hidden', String(!isOpen));
+  mobileMenu.classList.contains('open') ? closeDrawer() : openDrawer();
 });
+
+mmClose.addEventListener('click', closeDrawer);
+drawerOverlay.addEventListener('click', closeDrawer);
 
 document.querySelectorAll('.mm-link').forEach(link => {
-  link.addEventListener('click', () => {
-    mobileMenu.classList.remove('open');
-    hamburger.classList.remove('open');
-    mobileMenu.setAttribute('aria-hidden', 'true');
-  });
-});
-
-// Close menu when clicking outside
-document.addEventListener('click', (e) => {
-  if (!nav.contains(e.target)) {
-    mobileMenu.classList.remove('open');
-    hamburger.classList.remove('open');
-  }
+  link.addEventListener('click', closeDrawer);
 });
 
 // ── SCROLL REVEAL ─────────────────────────────────────────────
