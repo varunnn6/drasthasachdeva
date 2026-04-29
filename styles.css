@@ -39,7 +39,7 @@ img{max-width:100%;display:block}
 /* =============================================
    CONTAINER
    ============================================= */
-.container{max-width:1120px;margin:0 auto;padding:0 24px}
+.container{width:min(92vw,1400px);margin:0 auto;padding:0 clamp(16px,3vw,48px)}
 
 /* =============================================
    BUTTONS
@@ -74,7 +74,7 @@ img{max-width:100%;display:block}
 }
 .nav.scrolled{box-shadow:var(--shadow-sm)}
 .nav-inner{
-  max-width:1120px;margin:0 auto;padding:0 24px;
+  width:min(92vw,1400px);margin:0 auto;padding:0 clamp(16px,3vw,48px);
   height:66px;display:flex;align-items:center;justify-content:space-between;
 }
 .nav-logo{
@@ -176,7 +176,7 @@ img{max-width:100%;display:block}
 .hero{
   min-height:100vh;
   display:flex;align-items:center;justify-content:space-between;gap:48px;
-  max-width:1120px;margin:0 auto;padding:88px 24px 60px;
+  width:min(92vw,1400px);margin:0 auto;padding:88px clamp(16px,3vw,48px) 60px;
   position:relative;
 }
 .hero::before{
@@ -506,4 +506,13 @@ a.loc-chip:hover{transform:translateX(5px);box-shadow:var(--shadow-sm);backgroun
 @media(max-width:380px){
   .hero-actions{flex-direction:column;align-items:center}
   .btn-primary,.btn-outline{width:100%;justify-content:center}
+}
+@media(min-width:1280px){
+  .services-grid{grid-template-columns:repeat(5,1fr)}
+  .features-grid{grid-template-columns:repeat(5,1fr)}
+  .why-grid{grid-template-columns:repeat(5,1fr)}
+}
+@media(min-width:1600px){
+  .hero-title{font-size:5rem}
+  .services-grid{grid-template-columns:repeat(5,1fr)}
 }
