@@ -2,17 +2,60 @@
    SCRIPT.JS — Dr. Astha Sachdeva Physiotherapy Website
    ============================================================ */
 
-// ── PRELOADER ───────────────────────────────────────────────
+// ── PRELOADER & INTRO SEQUENCE ──────────────────────────────
 document.addEventListener("DOMContentLoaded", () => {
   const preloader = document.getElementById("preloader");
+  const nav = document.getElementById("nav");
+  const heroContent = document.getElementById("heroContent");
+  const heroPhoto = document.getElementById("heroPhoto");
+
+  // Set initial hidden states for intro animation
+  if (nav) {
+    nav.style.opacity = '0';
+    nav.style.transform = 'translateY(-20px)';
+    nav.style.transition = 'opacity 1.2s ease, transform 1.2s ease';
+  }
+  if (heroContent) {
+    heroContent.style.opacity = '0';
+    heroContent.style.transform = 'translateY(30px)';
+    heroContent.style.transition = 'opacity 1.2s ease, transform 1.2s ease';
+  }
+  if (heroPhoto) {
+    heroPhoto.style.opacity = '0';
+    heroPhoto.style.transform = 'translateX(30px)'; // matches original fade-left
+    heroPhoto.style.transition = 'opacity 1.2s ease, transform 1.2s ease';
+  }
+
   if (preloader) {
     // 0.2s delay + 1.5s fill animation + 0.3s hold = 2000ms total
     setTimeout(() => {
+      // PRELOADER FADES OUT (takes 1.5s as per CSS)
       preloader.style.opacity = "0";
+      
+      // Wait 1.5s for preloader to completely fade out before showing anything
       setTimeout(() => {
         preloader.style.display = "none";
         document.body.classList.remove("no-scroll");
-      }, 600); // Wait for the fade out transition
+
+        // 1. Navbar fades in first
+        if (nav) {
+          nav.style.opacity = '1';
+          nav.style.transform = 'translateY(0)';
+        }
+
+        // 2. Hero elements fade in AFTER navbar starts
+        setTimeout(() => {
+          if (heroContent) {
+            heroContent.style.opacity = '1';
+            heroContent.style.transform = 'translateY(0)';
+          }
+          if (heroPhoto) {
+            heroPhoto.style.opacity = '1';
+            heroPhoto.style.transform = 'translateX(0)';
+          }
+        }, 800); // 800ms after navbar
+
+      }, 1500); // Wait for the fade out transition
     }, 2000);
   }
 });
