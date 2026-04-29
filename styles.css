@@ -136,8 +136,13 @@ body.no-scroll { overflow: hidden; }
   height:86px;display:flex;align-items:center;justify-content:space-between;
 }
 .nav-logo{
-  font-family:'Corinthia',cursive;font-size:2.8rem;font-weight:700;
-  color:var(--navy);letter-spacing:.01em;line-height:1;
+  font-family:'Corinthia',cursive;
+  font-size:clamp(1.8rem, 6.5vw, 2.8rem);
+  font-weight:700;
+  color:var(--navy);
+  letter-spacing:.01em;
+  line-height:1;
+  white-space:nowrap;
 }
 .nav-links{display:flex;align-items:center;gap:36px}
 .nav-links a{font-size:.88rem;font-weight:500;color:var(--text-sub);transition:color .25s}
