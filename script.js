@@ -2,6 +2,21 @@
    SCRIPT.JS — Dr. Astha Sachdeva Physiotherapy Website
    ============================================================ */
 
+// ── PRELOADER ───────────────────────────────────────────────
+document.addEventListener("DOMContentLoaded", () => {
+  const preloader = document.getElementById("preloader");
+  if (preloader) {
+    // 0.2s delay + 1.5s fill animation + 0.3s hold = 2000ms total
+    setTimeout(() => {
+      preloader.style.opacity = "0";
+      setTimeout(() => {
+        preloader.style.display = "none";
+        document.body.classList.remove("no-scroll");
+      }, 600); // Wait for the fade out transition
+    }, 2000);
+  }
+});
+
 // ── NAV SCROLL SHADOW ────────────────────────────────────────
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
