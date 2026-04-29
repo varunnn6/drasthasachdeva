@@ -8,42 +8,46 @@ document.addEventListener("DOMContentLoaded", () => {
   const nav = document.getElementById("nav");
   const heroContent = document.getElementById("heroContent");
   const heroPhoto = document.getElementById("heroPhoto");
+  const waFloat = document.getElementById("wa-float");
 
   // Set initial hidden states for intro animation
   if (nav) {
     nav.style.opacity = '0';
-    nav.style.transform = 'translateY(-20px)';
-    nav.style.transition = 'opacity 1.2s ease, transform 1.2s ease';
+    nav.style.transition = 'opacity 0.6s ease';
   }
   if (heroContent) {
     heroContent.style.opacity = '0';
     heroContent.style.transform = 'translateY(30px)';
-    heroContent.style.transition = 'opacity 1.2s ease, transform 1.2s ease';
+    heroContent.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
   }
   if (heroPhoto) {
     heroPhoto.style.opacity = '0';
     heroPhoto.style.transform = 'translateX(30px)'; // matches original fade-left
-    heroPhoto.style.transition = 'opacity 1.2s ease, transform 1.2s ease';
+    heroPhoto.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+  }
+  if (waFloat) {
+    waFloat.style.opacity = '0';
+    waFloat.style.transform = 'translateY(20px)';
+    waFloat.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    waFloat.style.pointerEvents = 'none'; // Prevent clicks while hidden
   }
 
   if (preloader) {
     // 0.2s delay + 1.5s fill animation + 0.3s hold = 2000ms total
     setTimeout(() => {
-      // PRELOADER FADES OUT (takes 1.5s as per CSS)
+      // PRELOADER FADES OUT (takes 0.7s as per CSS)
       preloader.style.opacity = "0";
       
-      // Wait 1.5s for preloader to completely fade out before showing anything
+      // Wait 0.7s for preloader to completely fade out before showing anything
       setTimeout(() => {
         preloader.style.display = "none";
-        document.body.classList.remove("no-scroll");
 
-        // 1. Navbar fades in first
+        // 1. Navbar fades in first (no translate movement)
         if (nav) {
           nav.style.opacity = '1';
-          nav.style.transform = 'translateY(0)';
         }
 
-        // 2. Hero elements fade in AFTER navbar starts
+        // 2. Hero elements fade in 400ms AFTER navbar starts
         setTimeout(() => {
           if (heroContent) {
             heroContent.style.opacity = '1';
@@ -53,9 +57,23 @@ document.addEventListener("DOMContentLoaded", () => {
             heroPhoto.style.opacity = '1';
             heroPhoto.style.transform = 'translateX(0)';
           }
-        }, 800); // 800ms after navbar
 
-      }, 1500); // Wait for the fade out transition
+          // 3. WhatsApp button fades in 400ms AFTER hero elements start
+          setTimeout(() => {
+            if (waFloat) {
+              waFloat.style.opacity = '1';
+              waFloat.style.transform = 'translateY(0)';
+              waFloat.style.pointerEvents = 'auto';
+            }
+
+            // 4. Finally, unlock scrolling once everything is done loading
+            document.body.classList.remove("no-scroll");
+
+          }, 400);
+
+        }, 400);
+
+      }, 700); // Wait for the 0.7s fade out transition
     }, 2000);
   }
 });
