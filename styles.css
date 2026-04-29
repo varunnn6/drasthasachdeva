@@ -101,10 +101,10 @@ img{max-width:100%;display:block}
 .nav.scrolled{box-shadow:var(--shadow-sm)}
 .nav-inner{
   width:min(92vw,1400px);margin:0 auto;padding:0 clamp(16px,3vw,48px);
-  height:66px;display:flex;align-items:center;justify-content:space-between;
+  height:86px;display:flex;align-items:center;justify-content:space-between;
 }
 .nav-logo{
-  font-family:'Corinthia',cursive;font-size:1.7rem;font-weight:700;
+  font-family:'Corinthia',cursive;font-size:2.8rem;font-weight:700;
   color:var(--navy);letter-spacing:.01em;line-height:1;
 }
 .nav-links{display:flex;align-items:center;gap:36px}
@@ -202,7 +202,7 @@ img{max-width:100%;display:block}
 .hero{
   min-height:100vh;
   display:flex;align-items:center;justify-content:space-between;gap:48px;
-  width:min(92vw,1400px);margin:0 auto;padding:88px clamp(16px,3vw,48px) 60px;
+  width:min(92vw,1400px);margin:0 auto;padding:110px clamp(16px,3vw,48px) 60px;
   position:relative;
 }
 .hero::before{
@@ -524,7 +524,7 @@ a.loc-chip:hover{transform:translateX(5px);box-shadow:var(--shadow-sm);backgroun
    RESPONSIVE
    ============================================= */
 @media(max-width:960px){
-  .hero{flex-direction:column;text-align:center;min-height:auto;padding-top:100px;padding-bottom:48px}
+  .hero{flex-direction:column;text-align:center;min-height:auto;padding-top:120px;padding-bottom:48px}
   .hero-content{max-width:100%}
   .hero-actions{justify-content:center}
   .hero-pills{justify-content:center}
