@@ -32,7 +32,33 @@
    ============================================= */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.65;overflow-x:hidden}
+body{
+  font-family:'DM Sans',sans-serif;
+  color:var(--text);
+  line-height:1.65;
+  overflow-x:hidden;
+  /* Subtle dot-grid texture */
+  background-color:#eef8ff;
+  background-image:
+    radial-gradient(circle, rgba(14,165,233,.13) 1.2px, transparent 1.2px);
+  background-size:28px 28px;
+}
+/* Decorative floating medical crosses in background */
+body::before,body::after{
+  content:'+';
+  position:fixed;
+  font-size:clamp(120px,18vw,280px);
+  font-weight:300;
+  color:rgba(14,165,233,.055);
+  line-height:1;
+  pointer-events:none;
+  z-index:0;
+  user-select:none;
+}
+body::before{top:-60px;left:-30px}
+body::after{bottom:-60px;right:-30px}
+/* Ensure all sections sit above the fixed bg decoration */
+nav,section,footer{position:relative;z-index:1}
 a{text-decoration:none;color:inherit}
 img{max-width:100%;display:block}
 
