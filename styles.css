@@ -445,6 +445,24 @@ a.loc-chip{
   transition:all .3s var(--ease);
 }
 a.loc-chip:hover{transform:translateX(5px);box-shadow:var(--shadow-sm);background:var(--blue-50);border-color:var(--blue-300)}
+
+/* Serviceable Area block */
+.serviceable-area{
+  margin-top:20px;
+  padding:16px 20px;
+  background:var(--blue-50);
+  border:1.5px solid var(--blue-100);
+  border-radius:var(--r-md);
+}
+.area-label{
+  display:flex;align-items:center;gap:7px;
+  font-size:.78rem;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--blue-600);
+  margin-bottom:8px;
+}
+.area-list{
+  font-size:.84rem;color:var(--text-sub);line-height:1.7;
+}
 .contact-form-box{
   background:var(--bg);border:1px solid var(--blue-100);
   border-radius:var(--r-lg);padding:40px;box-shadow:var(--shadow-md);
