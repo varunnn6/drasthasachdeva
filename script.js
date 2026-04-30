@@ -2,6 +2,12 @@
    SCRIPT.JS — Dr. Astha Sachdeva Physiotherapy Website
    ============================================================ */
 
+// Force scroll to top on refresh so animation always starts at the top
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+window.scrollTo(0, 0);
+
 // ── PRELOADER & INTRO SEQUENCE ──────────────────────────────
 document.addEventListener("DOMContentLoaded", () => {
   const preloader = document.getElementById("preloader");
