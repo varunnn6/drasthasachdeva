@@ -1,14 +1,9 @@
-/* ============================================================
-   SCRIPT.JS — Dr. Astha Sachdeva Physiotherapy Website
-   ============================================================ */
 
-// Force scroll to top on refresh so animation always starts at the top
 if ('scrollRestoration' in history) {
   history.scrollRestoration = 'manual';
 }
 window.scrollTo(0, 0);
 
-// ── PRELOADER & INTRO SEQUENCE ──────────────────────────────
 document.addEventListener("DOMContentLoaded", () => {
   const preloader = document.getElementById("preloader");
   const nav = document.getElementById("nav");
@@ -16,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const heroPhoto = document.getElementById("heroPhoto");
   const waFloat = document.getElementById("wa-float");
 
-  // Set initial hidden states for intro animation
+  
   if (nav) {
     nav.style.opacity = '0';
     nav.style.transition = 'opacity 0.6s ease';
@@ -28,32 +23,32 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   if (heroPhoto) {
     heroPhoto.style.opacity = '0';
-    heroPhoto.style.transform = 'translateX(30px)'; // matches original fade-left
+    heroPhoto.style.transform = 'translateX(30px)'; 
     heroPhoto.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
   }
   if (waFloat) {
     waFloat.style.opacity = '0';
     waFloat.style.transform = 'translateY(20px)';
     waFloat.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    waFloat.style.pointerEvents = 'none'; // Prevent clicks while hidden
+    waFloat.style.pointerEvents = 'none'; 
   }
 
   if (preloader) {
-    // 0.2s delay + 1.5s fill animation + 0.3s hold = 2000ms total
+   
     setTimeout(() => {
-      // PRELOADER FADES OUT (takes 0.7s as per CSS)
+    
       preloader.style.opacity = "0";
       
-      // Wait 0.7s for preloader to completely fade out before showing anything
+   
       setTimeout(() => {
         preloader.style.display = "none";
 
-        // 1. Navbar fades in first (no translate movement)
+       
         if (nav) {
           nav.style.opacity = '1';
         }
 
-        // 2. Hero elements fade in 400ms AFTER navbar starts
+       
         setTimeout(() => {
           if (heroContent) {
             heroContent.style.opacity = '1';
@@ -64,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
             heroPhoto.style.transform = 'translateX(0)';
           }
 
-          // 3. WhatsApp button fades in 400ms AFTER hero elements start
+         
           setTimeout(() => {
             if (waFloat) {
               waFloat.style.opacity = '1';
@@ -72,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
               waFloat.style.pointerEvents = 'auto';
             }
 
-            // 4. Finally, unlock scrolling once everything is done loading
+          
             document.body.classList.remove("no-scroll");
 
           }, 400);
@@ -84,13 +79,13 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// ── NAV SCROLL SHADOW ────────────────────────────────────────
+
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 20);
 }, { passive: true });
 
-// ── RIGHT-SIDE DRAWER ────────────────────────────────────
+
 const hamburger     = document.getElementById('hamburger');
 const mobileMenu    = document.getElementById('mobileMenu');
 const drawerOverlay = document.getElementById('drawerOverlay');
@@ -125,13 +120,13 @@ document.querySelectorAll('.mm-link').forEach(link => {
   link.addEventListener('click', closeDrawer);
 });
 
-// ── SCROLL REVEAL ─────────────────────────────────────────────
+
 const animateEls = document.querySelectorAll('[data-animate]');
 
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry, i) => {
     if (entry.isIntersecting) {
-      // stagger children in grids
+   
       const siblings = entry.target.parentElement
         ? [...entry.target.parentElement.children].filter(el => el.hasAttribute('data-animate'))
         : [];
@@ -149,17 +144,13 @@ const revealObserver = new IntersectionObserver((entries) => {
 
 animateEls.forEach(el => revealObserver.observe(el));
 
-// ── MARQUEE — seamless loop via CSS, nothing extra needed ────
-// The CSS @keyframes marquee handles it. Just ensure the
-// content is doubled exactly in HTML (which it is).
 
-// ── CONTACT FORM → WHATSAPP ──────────────────────────────────
 function handleSubmit(e) {
   e.preventDefault();
   const form    = document.getElementById('contactForm');
   const success = document.getElementById('formSuccess');
 
-  // Validation
+
   const inputs = form.querySelectorAll('input[required]');
   let valid = true;
   inputs.forEach(input => {
@@ -172,7 +163,7 @@ function handleSubmit(e) {
   });
   if (!valid) return;
 
-  // Collect values
+  
   const name      = document.getElementById('name').value.trim();
   const age       = document.getElementById('age').value.trim();
   const phone     = document.getElementById('phone').value.trim();
@@ -190,7 +181,7 @@ function handleSubmit(e) {
   if (message)   waMsg += `*Note:* ${message}\n`;
   waMsg += `\n_Sent via website form_`;
 
-  // Open WhatsApp with pre-filled message
+
   const encoded = encodeURIComponent(waMsg);
   window.open(`https://wa.me/917011700787?text=${encoded}`, '_blank');
 
@@ -209,7 +200,7 @@ function handleSubmit(e) {
   }, 350);
 }
 
-// ── SERVICE CARDS — subtle tilt on hover (desktop only) ──────
+
 if (window.matchMedia('(hover: hover)').matches) {
   document.querySelectorAll('.service-card, .why-card').forEach(card => {
     card.addEventListener('mousemove', (e) => {
@@ -228,7 +219,7 @@ if (window.matchMedia('(hover: hover)').matches) {
   });
 }
 
-// ── SMOOTH ANCHOR SCROLL ─────────────────────────────────────
+
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', (e) => {
     const target = document.querySelector(a.getAttribute('href'));
